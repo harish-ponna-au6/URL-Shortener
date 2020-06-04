@@ -18,7 +18,7 @@ router.post("/users/register", registerUser);
 router.post("/users/login", loginUser);
 
 router.get("/users/dashboard", authenticate, dashboard);
-router.get("/short-url/:urlcount", authenticate,  urlCount);
+router.get("/:urlcount", authenticate,  urlCount);
 router.post("/users/postdashboard", authenticate, postDashboard);
 
 router.delete("/users/logout", authenticate,logOutUser);
