@@ -12,29 +12,17 @@ const {
 } = require("../controller/userController");
 const {authenticate} = require("../middleware/authenticate");
 
-// Register page
-router.get("/register", renderRegisterPage);
-// Login page
-router.get("/login", renderLoginPage);
-
-//--------------------
 
 router.post("/users/register", registerUser);
 
 router.post("/users/login", loginUser);
 
-router.get("/users/dashboard", dashboard);
-router.get("/url-count/:urlcount", urlCount);
-router.post("/users/postdashboard", postDashboard);
+router.get("/users/dashboard", authenticate, dashboard);
+router.get("/short-url/:urlcount", authenticate,  urlCount);
+router.post("/users/postdashboard", authenticate, postDashboard);
 
 router.delete("/users/logout", authenticate,logOutUser);
 
 module.exports = router;
 
 
-
-
-
-
-
-module.exports = router;

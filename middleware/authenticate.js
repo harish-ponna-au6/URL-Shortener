@@ -10,9 +10,9 @@ authenticate: function (req, res, next) {
       })
       .catch(function (err) {
         console.log(err.message);
-        res.redirect("/login");
+        res.redirect("/");
       });
-  } else res.redirect("/login");
+  } else res.redirect("/");
 }
 }
  

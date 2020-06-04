@@ -1,5 +1,59 @@
 <br>
-<br>
-<br>
-<h1 class= "text-center">This is a web site where you can shorten your URL</h1>
-<h4 class= "text-center">Please Login or Register to shorten your URL</h4>
+<h3 class="text-center">This is a web site where you can shorten your URL</h3>
+<h5 class="text-center">Please Login or Register to shorten your URL</h5>
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex flex-wrap justify-content-around">
+            <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10  mt-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-dark p-1 mb-4">
+                        <h4 class="text-center text-light">Log In</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/users/login" method="POST">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input required class="form-control" type="email" name="email" placeholder="Enter your email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input required class="form-control" type="password" name="password"
+                                    placeholder="Enter your password">
+                            </div>
+                            <div class="text-center">
+                                <input class="btn btn-dark" type="submit" value="Login">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10 mt-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-dark p-1 mb-4">
+                        <h4 class="text-center text-light">Sign Up</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/users/register" method="POST">
+                            <div class="form-group">
+                                <label for="">User Name</label>
+                                <input required class="form-control" type="text" name="name" placeholder="Enter your email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input required class="form-control" type="email" name="email" placeholder="Enter your Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input required class="form-control" type="password" name="password"
+                                    placeholder="Enter your password">
+                            </div>
+                            <div class="text-center">
+                                <input class="btn btn-dark" type="submit" value="Signup">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

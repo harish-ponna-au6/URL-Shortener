@@ -1,30 +1,89 @@
 
 <br>
-<br>
 <h2 class = "text-center">Welcome to Shortener...</h2>
 <br>
 <div class="text-center">
 <form method="POST" action="/users/postdashboard">
-  <input type="text" id="longUrl" name="longUrl"  placeholder="Enter your URL" />
-  <input type="submit" value="Shorten URL" />
+  <input  type="text" id="longUrl" name="longUrl"  placeholder="Enter your URL" />
+  <input style="cursor: pointer;" type="submit" value="Shorten URL" />
 </form>
 </div>
 <br>
-<table class="table">
-  <thead>
+<br>
+<h5 class="text-center">Your Shortened URLs</h5>
+<style>
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media
+	  only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 950px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			margin-left: 28%;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			left: -34%;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "Long URL"; }
+		td:nth-of-type(2):before { content: "Short URL"; }
+		td:nth-of-type(3):before { content: "Clicks"; }
+}
+</style>
+<div class="col-12">
+<table class="table ">
+  <thead class="thead-dark">
     <tr>
-      <th scope="col">Long URL</th>
-      <th scope="col">Short URL</th>
-      <th scope="col">Clicks</th>
+      <th  scope="col">Long URL</th>
+      <th  scope="col">Short URL</th>
+      <th  scope="col">Clicks</th>
     </tr>
   </thead>
   <tbody>
      {{#each urls}}
    <tr>
-    <td>{{this.longUrl}}</td>
-    <td><a href='{{this.shortUrl}}' target="_blank">{{this.shortUrl}}</a></td>
-    <td>{{this.count}}</td>
+    <td style ="word-break:break-all;">{{this.longUrl}}</td>
+    <td style ="word-break:break-all;"><a style ="text-decoration:none" href='{{this.shortUrl}}' target="_blank">{{this.shortUrl}}</a></td>
+    <td style ="word-break:break-all;">{{this.count}}</td>
   </tr>
       {{/each}}
   </tbody>
 </table>
+</div>

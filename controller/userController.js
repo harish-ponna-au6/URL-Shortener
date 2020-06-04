@@ -62,7 +62,7 @@ module.exports = {
 
   postDashboard: async (req, res) => {
     const { longUrl } = req.body;
-    const baseUrl = "http://localhost:8080/url-count/";
+    const baseUrl = "http://localhost:8080/short-url/";
 
     // Check base url
     if (!validUrl.isUri(baseUrl)) {
